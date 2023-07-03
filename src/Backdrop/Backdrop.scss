@@ -1,0 +1,17 @@
+.backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 300;
+  animation: desepiate 240s linear;
+  pointer-events: none;
+}
+
+@keyframes desepiate {
+  0% {
+    backdrop-filter: sepia(100%);
+  }
+  100% {
+    backdrop-filter: sepia(0%);
+  }
+}
