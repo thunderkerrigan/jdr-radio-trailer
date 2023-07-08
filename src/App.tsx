@@ -38,13 +38,13 @@ function App() {
   // const [muteGerman, startGerman, isGermanPlaying] =
   //   useAudioPlaylist(germanPlaylist);
   const [muteParis, startParis, isParisPlaying] = useAudioURL(
-    "http://localhost:3031/radio"
+    "https://paris.thunderkerrigan.fr/radio"
   );
   const [muteLondon, startLondon, isLondonPlaying] = useAudioURL(
-    "http://localhost:3030/radio"
+    "https://londres.thunderkerrigan.fr/radio"
   );
   const [muteGerman, startGerman, isGermanPlaying] = useAudioURL(
-    "http://localhost:3032/radio"
+    "https://german.thunderkerrigan.fr/radio"
   );
 
   const startOrStopRadio = () => {
