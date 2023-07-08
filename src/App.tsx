@@ -20,6 +20,8 @@ import switchSound from "./assets/radio_click_button.wav";
 import Radio from "./Radio/Radio";
 import useAudioPlaylist from "./hooks/useRadio";
 import Backdrop from "./Backdrop/Backdrop";
+import useAudioURL from "./hooks/useTrueRadio";
+
 const parisPlaylist = [parisSong1, parisSong2, parisSong3, parisSong4];
 const londonPlaylist = [londonSong1, londonSong2, londonSong3, londonSong4];
 const germanPlaylist = [germanSong1, germanSong2];
@@ -29,12 +31,21 @@ function App() {
   const [isChangingRadio, loadRadio] = useState<boolean>(false);
   const [song, setSong] = useState<0 | 1 | 2>(0);
 
-  const [muteParis, startParis, isParisPlaying] =
-    useAudioPlaylist(parisPlaylist);
-  const [muteLondon, startLondon, isLondonPlaying] =
-    useAudioPlaylist(londonPlaylist);
-  const [muteGerman, startGerman, isGermanPlaying] =
-    useAudioPlaylist(germanPlaylist);
+  // const [muteParis, startParis, isParisPlaying] =
+  //   useAudioPlaylist(parisPlaylist);
+  // const [muteLondon, startLondon, isLondonPlaying] =
+  //   useAudioPlaylist(londonPlaylist);
+  // const [muteGerman, startGerman, isGermanPlaying] =
+  //   useAudioPlaylist(germanPlaylist);
+  const [muteParis, startParis, isParisPlaying] = useAudioURL(
+    "http://localhost:3031/radio"
+  );
+  const [muteLondon, startLondon, isLondonPlaying] = useAudioURL(
+    "http://localhost:3030/radio"
+  );
+  const [muteGerman, startGerman, isGermanPlaying] = useAudioURL(
+    "http://localhost:3032/radio"
+  );
 
   const startOrStopRadio = () => {
     new Audio(switchSound).play();

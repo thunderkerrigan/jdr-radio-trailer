@@ -17,6 +17,7 @@ const useAudioPlaylist = (playlist: string[]): useAudioPlaylistHook => {
 
   const player = useMemo(() => {
     const _audio = new Audio(playlist[currentTrackIndex]);
+    
     _audio.autoplay = true;
     _audio.defaultMuted = true;
     _audio.muted = true;
