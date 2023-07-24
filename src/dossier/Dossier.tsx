@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import dedale from "../assets/fiches/dedale.png";
 import berger from "../assets/fiches/berger.png";
 import corbeau from "../assets/fiches/corbeau.png";
