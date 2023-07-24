@@ -2,6 +2,7 @@ import React from "react";
 import radio from "../assets/radio.png";
 import radioButton from "../assets/Button.png";
 import "./Radio.scss";
+import Dossier from "../dossier/Dossier";
 
 type RadioProps = {
   onSwitchRadio: () => void;
@@ -33,6 +34,7 @@ const Radio = ({ onSwitchTuning, onSwitchRadio, isOn }: RadioProps) => {
           style={{ transform: `rotate(${rotation[0]}deg)` }}
         />
       </div>
+      <Dossier />
     </div>
   );
 };

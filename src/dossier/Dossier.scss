@@ -1,0 +1,155 @@
+.Dossier {
+  position: absolute;
+  height: 300px;
+  z-index: 300;
+  margin: auto;
+  box-shadow: 1px 1px 2px #131313;
+  cursor: pointer;
+  transition-duration: 750ms;
+  transition-timing-function: ease-in-out;
+  transition-property: all;
+  // :nth-child(1) {
+  //   rotate: 20deg;
+  //   z-index: 299;
+  // }
+}
+
+.Dossier.opened {
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.Dossier.displayed {
+  z-index: 500;
+  animation-name: nextPage;
+  animation-duration: 750ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.file-container {
+  position: absolute;
+  left: 8px;
+  // width: 100%;
+  height: 100%;
+
+  :nth-child(-n) {
+    z-index: 300;
+    // rotate: math.random(5)-2;
+    // transition: all 750ms ease-in-out;
+  }
+}
+
+// @for $i from 1 through 16 {
+//   .file-container:nth-child(#{$i}) {
+//     z-index: 300;
+//     // transform: rotate((2)*$i + deg);
+//   }
+// }
+
+@keyframes nextPage {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(140%) rotate(20deg);
+    scale: 0.8;
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.folder {
+  position: absolute;
+  height: 300px;
+  // z-index: 300;
+  z-index: 600;
+
+  transition: all 750ms ease-in-out;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+
+  backface-visibility: visible;
+  backdrop-filter: drop-shadow(2px 2px 14px blue);
+}
+
+.folder.front {
+  cursor: pointer;
+  z-index: 600;
+}
+
+.folder.back {
+  z-index: 300;
+}
+
+.folder.back.opened {
+  height: 100%;
+}
+
+.folder.logo {
+  cursor: pointer;
+}
+.folder.logo.opened {
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 600;
+  transform: rotateY(180deg);
+  opacity: 0;
+  transition-duration: 760ms;
+  perspective-origin: bottom center;
+}
+
+.folder.front.opened {
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 600;
+  transform: rotateY(180deg);
+  perspective-origin: bottom center;
+}
+
+@keyframes flip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+.folder-container {
+  position: absolute;
+  perspective: 2300px;
+  z-index: 300;
+  left: 30%;
+  top: 40%;
+  // width: 100%;
+  height: 100%;
+  perspective-origin: bottom center;
+  backface-visibility: visible;
+  transition: all 750ms ease-in-out;
+}
+.folder-container.opened {
+  left: max(15px, 5%);
+  top: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 300;
+  perspective-origin: bottom center;
+  backface-visibility: visible;
+}
+
+@media screen and (max-width: 800px) {
+  .folder-container {
+    left: 20%;
+    top: 70%;
+    width: 100%;
+    height: 100%;
+    perspective: 300;
+    perspective-origin: bottom center;
+    backface-visibility: visible;
+  }
+}

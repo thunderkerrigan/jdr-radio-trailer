@@ -1,17 +1,60 @@
-.backdrop {
+.zoom-backdrop {
   position: absolute;
   width: 100vw;
   height: 100vh;
   z-index: 300;
-  animation: desepiate 240s linear;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-name: animation-blur;
+  div {
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-name: animation-zoom;
+  }
+  // pointer-events: none;
+}
+.entrance-backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 310;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+  animation-name: animation-blur;
+  pointer-events: none;
+}
+.sepia-backdrop {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 310;
+  animation-duration: 4.5s;
+  animation-timing-function: ease-in;
+  animation-name: animation-desepiate;
   pointer-events: none;
 }
 
-@keyframes desepiate {
+@keyframes animation-desepiate {
   0% {
-    backdrop-filter: sepia(100%);
+    backdrop-filter: blur(7px) sepia(100%);
   }
   100% {
-    backdrop-filter: sepia(0%);
+    backdrop-filter: blur(0px) sepia(0%);
+  }
+}
+
+@keyframes animation-blur {
+  0% {
+  }
+  100% {
+  }
+}
+
+@keyframes animation-zoom {
+  0% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }

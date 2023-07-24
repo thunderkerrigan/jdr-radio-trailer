@@ -1,8 +1,13 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import "./Backdrop.scss";
 
 const Backdrop = (): React.ReactElement => {
-  return <div className="backdrop" />;
+  return (
+    <>
+      <div className="sepia-backdrop" />
+      <div className="entrance-backdrop" />
+    </>
+  );
 };
 
 export default Backdrop;

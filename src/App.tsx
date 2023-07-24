@@ -98,7 +98,7 @@ function App() {
       loadRadio(true);
       const audio = new Audio(tuningSound);
       audio.play();
-      audio.playbackRate = 1 + Math.random() * 1.5;
+      audio.playbackRate = 1 + Math.random() * 1.25;
       audio.onended = () => {
         loadRadio(false);
       };
